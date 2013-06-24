@@ -94,18 +94,20 @@ DNSCrypt can be downloaded here: [dnscrypt download](http://dnscrypt.org)
 <p>
 After having downloaded a file, compute its SHA256 digest. For example:
   <pre><code>
-    $ openssl dgst -sha256 dnscrypt-proxy-1.3.1.tar.bz2
+$ openssl dgst -sha256 dnscrypt-proxy-1.3.1.tar.bz2
   </code></pre>
 </p>
 <p>
 Verify this digest against the expected one, that can be retrieved
 using a simple DNS query:
   <pre><code>
-    $ drill -D TXT dnscrypt-proxy-1.3.1.tar.bz2.download.dnscrypt.org
+$ drill -D TXT dnscrypt-proxy-1.3.1.tar.bz2.download.dnscrypt.org
   </code></pre>
-or
+
+or:
+
   <pre><code>
-    $ dig +dnssec TXT dnscrypt-proxy-1.3.1.tar.bz2.download.dnscrypt.org
+$ dig +short +dnssec TXT dnscrypt-proxy-1.3.1.tar.bz2.download.dnscrypt.org
   </code></pre>
 </p>
 <p>
@@ -125,9 +127,7 @@ There might be a pre-built binary package for your operating system
 already.
 On Linux, don't forget to run <code>ldconfig</code> if you installed it from source.
 
-<p>Download the
-<a href="/dnscrypt-proxy/downloads/">latest dnscrypt-proxy version</a>
-and extract it:</p>
+<p>Download the latest dnscrypt-proxy version and extract it:</p>
 
 <pre><code>$ bunzip2 -cd dnscrypt-proxy-*.tar.bz2 | tar xvf -
 $ cd dnscrypt-proxy-*
