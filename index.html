@@ -87,6 +87,33 @@ href="https://github.com/Cofyc/dnscrypt-wrapper">dnscrypt-wrapper</a>, a server-
 dnscrypt proxy that works with any name resolver.</li>
 </ul>
 
+<h2>Download and integrity check</h2>
+<p>
+DNSCrypt can be downloaded here: [dnscrypt download](http://dnscrypt.org)
+</p>
+<p>
+After having downloaded a file, compute its SHA256 digest. For example:
+  <pre><code>
+    $ openssl dgst -sha256 dnscrypt-proxy-1.3.1.tar.bz2
+  </code></pre>
+</p>
+<p>
+Verify this digest against the expected one, that can be retrieved
+using a simple DNS query:
+  <pre><code>
+    $ drill -D TXT dnscrypt-proxy-1.3.1.tar.bz2.download.dnscrypt.org
+  </code></pre>
+or
+  <pre><code>
+    $ dig +dnssec TXT dnscrypt-proxy-1.3.1.tar.bz2.download.dnscrypt.org
+  </code></pre>
+</p>
+<p>
+If the content of the TXT record doesn't match the SHA256 digest you
+computed, please file a bug report on Github as soon as possible and
+don't go any further.
+</p>
+
 <h2>Installation</h2>
 
 <p>The daemon is known to work on recent versions of OSX, OpenBSD, Bitrig,
